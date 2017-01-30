@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="trackApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="track.js"></script>
+  </head>
+  <body>
+    <h2>Find Similar Tracks</h2>
+    <br>
+    <div ng-controller="TrackListController as trackList">
+      <form ng-submit="trackList.getTracks()">
+       <input type="text" ng-model="trackList.artist"  size="30"
+              placeholder="type artist name">
+      <input type="text" ng-model="trackList.track"  size="30"
+             placeholder="type track name">
+       <input class="btn-primary" type="submit" value="find">
+      </form>
+      <br>
+      <br>
+      <div class="row">
+         <div class="col-md-6">
+           <table class="table">
+             <thead>
+               <tr>
+                 <th>ARTIST</th>
+                 <th>SONG</th>
+                 <th>PLAY COUNT</th>
+               </tr>
+             </thead>
+             <tbody ng-repeat="track in trackList.tracks">
+                 <td>{{track.artist}}</td>
+                 <td>{{track.song}}</td>
+                 <td>{{track.count}}</td>
+             </tbody>
+          </table>
+         </div>
+        </div>
+      <span>{{trackList.tracks.length}} tracks found</span>
+    </div>
+  </body>
+  <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+  <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</html>
