@@ -1,9 +1,7 @@
 var request = require('request');
 
 var lastfm = {
-    apikey: '*****',
-
-    tracks: this,
+    apikey: '******',
 
     getSimilarTracks: function(artist, song, callback) {
         request('http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=' + artist
