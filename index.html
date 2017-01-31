@@ -25,13 +25,13 @@
                <tr>
                  <th>ARTIST</th>
                  <th>SONG</th>
-                 <th>PLAY COUNT</th>
+                 <th>YOUTUBE</th>
                </tr>
              </thead>
              <tbody ng-repeat="track in trackList.tracks">
                  <td>{{track.artist}}</td>
                  <td>{{track.song}}</td>
-                 <td>{{track.count}}</td>
+                 <td><a href='https://www.youtube.com/watch?v={{track.youtubeId}}'>{{track.youtubeId}}</a></td>
              </tbody>
           </table>
          </div>

@@ -5,6 +5,13 @@ angular.module('trackApp', [])
 
     var server = "http://localhost:3000";
 
+    var getYoutubeId = function(artist, song, callback) {
+        $http.get(server + "/youtube?artist="
+        + artist + "&song=" + song).then(function(response) {
+            callback(artist, song, response.data);
+        });
+    };
+
     trackList.remaining = function() {
       var count = 0;
       angular.forEach(trackList.tracks, function(track) {
@@ -20,11 +27,15 @@ angular.module('trackApp', [])
             if (response.data.error) return;
 
             for(var i = 0; i < Math.min(50, response.data.similartracks.track.length); i++) {
-                trackList.tracks.push({
-                    artist: response.data.similartracks.track[i].artist.name,
-                    song: response.data.similartracks.track[i].name,
-                    count: response.data.similartracks.track[i].playcount
-                });
+                var artist = response.data.similartracks.track[i].artist.name;
+                var song = response.data.similartracks.track[i].name;
+                getYoutubeId(artist, song, function(artist, song, param) {
+                     trackList.tracks.push({
+                         artist: artist,
+                         song: song,
+                         youtubeId: param,
+                     });
+                 });
             }
         })
     };

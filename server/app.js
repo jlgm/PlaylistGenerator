@@ -7,7 +7,7 @@ var lastfm = require('./lastfm')
 //youtube connector:
 var YouTube = require('youtube-node');
 var youtube = new YouTube();
-youtube.setKey('********');
+youtube.setKey('AIzaSyCb1laD9ckELer8NIW6rlxnzWknrSz6dsM');
 
 app.get('/getTracks', function (req, res) {
     var artist = req.param('artist');
@@ -17,15 +17,6 @@ app.get('/getTracks', function (req, res) {
         else {
             res.header('Access-Control-Allow-Origin', '*');
             res.header("Access-Control-Allow-Headers", "X-Requested-With");
-            // var counter = 0;
-            //var obj = JSON.parse(response);
-            // response.similartracks.track.forEach(function(mytrack) {
-            //     youtube.search(mytrack.artist.name + ' ' + mytrack.name, 2, function(error, result) {
-            //         response.similartracks.track[counter].youtubeId = result.items[0].id.videoId;
-            //         console.log(mytrack.artist.name + " | " + mytrack.name + " | " + result.items[0].id.videoId);
-            //         counter++;
-            //     });
-            // });
             res.send(response);
         }
     });
@@ -41,7 +32,10 @@ app.get('/youtube', function(req, res) {
         else {
             res.header('Access-Control-Allow-Origin', '*');
             res.header("Access-Control-Allow-Headers", "X-Requested-With");
-            res.send(response.items[0].id.videoId);
+            if (response.items.length == 0) {
+                res.send('(not found)');
+            }
+            else res.send(response.items[0].id.videoId);
         }
     });
 });
