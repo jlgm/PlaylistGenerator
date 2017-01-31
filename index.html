@@ -6,7 +6,7 @@
     <script src="track.js"></script>
   </head>
   <body>
-    <h2>Find Similar Tracks</h2>
+    <h2>Playlist Generator</h2>
     <br>
     <div ng-controller="TrackListController as trackList">
       <form ng-submit="trackList.getTracks()">
@@ -16,6 +16,10 @@
              placeholder="type track name">
        <input class="btn-primary" type="submit" value="find">
       </form>
+      <br>
+      <span>Type a song*, press ENTER</span><br>
+      <span>Click on <i>Generate Playlist</i> after similar tracks are loaded</span><br><br>
+      <span>*Both Artist and Song name are required</span><br>
       <br>
       <br>
       <div class="row">
@@ -36,7 +40,8 @@
           </table>
          </div>
         </div>
-      <span>{{trackList.tracks.length}} tracks found</span>
+      <span><a target="_blank" href={{trackList.generatePlaylist()}}><img src='https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico'>Generate Playlist</a></span><br>
+      <br><br>
     </div>
   </body>
   <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>

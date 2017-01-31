@@ -13,11 +13,11 @@ angular.module('trackApp', [])
     };
 
     trackList.remaining = function() {
-      var count = 0;
-      angular.forEach(trackList.tracks, function(track) {
+        var count = 0;
+        angular.forEach(trackList.tracks, function(track) {
         count += track.done ? 0 : 1;
-      });
-      return count;
+        });
+        return count;
     };
 
     trackList.getTracks = function() {
@@ -38,6 +38,15 @@ angular.module('trackApp', [])
                  });
             }
         })
+    };
+
+    trackList.generatePlaylist = function() {
+        var url = 'http://www.youtube.com/watch_videos?video_ids='
+        angular.forEach(trackList.tracks, function(track) {
+            url += (track.youtubeId + ',');
+        });
+        url += 'dQw4w9WgXcQ';
+        return url;
     };
 
 }]);
