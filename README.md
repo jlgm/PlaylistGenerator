@@ -1,8 +1,8 @@
 # PlaylistGenerator
-Generates a playlist of similar tracks
+Generates a Youtube Playlist of similar tracks
 
-This project is an extension of https://github.com/jlgm/SimilarTracks
+Creates a playlist on youtube (maybe spotify later) based on a particular song you like. It will use a couple of APIs such as Last.fm, Spotify and Youtube.
 
-It will create a playlist on youtube and/or spotify based on a particular song or band. It will use a couple of APIs such as Facebook, Spotify and Youtube.
+Working demo at: http://www.cin.ufpe.br/~jlgm/PlaylistGenerator
 
 ![alt tag](https://raw.githubusercontent.com/jlgm/PlaylistGenerator/master/demo.png)
