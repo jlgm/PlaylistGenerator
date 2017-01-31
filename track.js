@@ -3,6 +3,8 @@ angular.module('trackApp', [])
     var trackList = this;
     trackList.tracks = [];
 
+    var server = "http://localhost:3000";
+
     trackList.remaining = function() {
       var count = 0;
       angular.forEach(trackList.tracks, function(track) {
@@ -12,9 +14,8 @@ angular.module('trackApp', [])
     };
 
     trackList.getTracks = function() {
-        $http.get("http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist="
-        + trackList.artist + "&track=" + trackList.track +
-        "&api_key=ed77b11b1f0965db65c3144cbffaf27b&format=json").then(function(response) {
+        $http.get(server + "/getTracks?artist="
+        + trackList.artist + "&song=" + trackList.track).then(function(response) {
 
             if (response.data.error) return;
 

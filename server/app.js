@@ -8,6 +8,8 @@ app.get('/getTracks', function (req, res) {
     lastfm.getSimilarTracks(artist, song, function(error, response) {
         if (error) console.log(error);
         else {
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header("Access-Control-Allow-Headers", "X-Requested-With");
             res.send(response);
         }
     });
