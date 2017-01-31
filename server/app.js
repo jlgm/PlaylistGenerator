@@ -7,7 +7,7 @@ var lastfm = require('./lastfm')
 //youtube connector:
 var YouTube = require('youtube-node');
 var youtube = new YouTube();
-youtube.setKey('AIzaSyCb1laD9ckELer8NIW6rlxnzWknrSz6dsM');
+youtube.setKey('*****');
 
 app.get('/getTracks', function (req, res) {
     var artist = req.param('artist');
