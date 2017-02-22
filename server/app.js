@@ -7,7 +7,7 @@ var lastfm = require('./lastfm')
 //youtube connector:
 var YouTube = require('youtube-node');
 var youtube = new YouTube();
-youtube.setKey('*****');
+youtube.setKey('*');
 
 app.get('/getTracks', function (req, res) {
     var artist = req.param('artist');
@@ -33,7 +33,7 @@ app.get('/youtube', function(req, res) {
             res.header('Access-Control-Allow-Origin', '*');
             res.header("Access-Control-Allow-Headers", "X-Requested-With");
             if (response.items.length == 0) {
-                res.send('(not found)');
+                res.send('');
             }
             else res.send(response.items[0].id.videoId);
         }
