@@ -13,6 +13,10 @@ This app uses data from Last.fm (for finding similar tracks) and then searches f
 * Type both song name and artist
 * Click on *Generate Playlist* at the end of the list
 
+## API Keys
+
+* On *app.js* and *lastfm.js* you'll need to insert a valid Google API Key and Last.fm Key, respectively
+
 ## Ilustration
 
 ![alt tag](https://raw.githubusercontent.com/jlgm/PlaylistGenerator/master/demo.png)
