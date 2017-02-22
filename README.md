@@ -1,8 +1,18 @@
 # PlaylistGenerator
-Generates a Youtube Playlist of similar tracks
+Create a Youtube playlist based on a particular song you like
 
-Create a playlist on youtube (maybe spotify later) based on a particular song you like. This app will use a couple of APIs such as Last.fm, Spotify and Youtube.
+This app uses data from Last.fm (for finding similar tracks) and then searches for them on Youtube, generating a Playlist afterwards.
 
-Working demo at: http://www.cin.ufpe.br/~jlgm/PlaylistGenerator
+## Executing
+
+* Make sure you have Node.js installed
+* Go to /server
+* `npm install` the dependencies
+* Run the server with `node app.js`
+* Open *index.html* on a browser
+* Type both song name and artist
+* Click on *Generate Playlist* at the end of the list
+
+## Ilustration
 
 ![alt tag](https://raw.githubusercontent.com/jlgm/PlaylistGenerator/master/demo.png)
